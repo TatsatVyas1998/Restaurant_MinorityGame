@@ -1,21 +1,62 @@
-import tkinter as tk
-import requests
+from tkinter import *
+#import Pmw
 
-from PIL import Image, ImageTk
+window=Tk()
+window.geometry("455x350")
+window.title("Minority Game")
+window.configure(background="#2a2a2a")
+
+labelTitle = Label(window,text="Restaurant Occupency Prediction",bg="#102A43",fg="white",pady=10,font="Time 20 bold").pack()
+
+#agent frame
+agentFrame = Frame(window,pady=10,bg="#2a2a2a")
+
+labelAgents = Label(agentFrame,text= "Number of agents",fg="white",bg="#2a2a2a",font="Time 13 bold")
+labelAgents.pack(side=LEFT)
+
+entryAgents = Entry(agentFrame)
+entryAgents.pack(side=LEFT)
+
+n = int(input("Enter number of agents : "))
+
+# memory storage of the previous inputs
+for i in range(0, n):
+    agents = int(input())
+    lst.append(agents)
+#print the lists - still in progress
+root = Tk()
+t = Text(root)
+for x in lst:
+    t.insert(END, x + '\n')
+t.pack()
+root.mainloop()
+
+agentFrame.pack()
 
 
-app= tk.Tk()
+#roundsFrame
+roundsFrame = Frame(window, bg="#2a2a2a")
 
-HEIGHT=800
-WIDTH=800
+labelRounds = Label(roundsFrame,text= "Number of rounds",fg="white",bg="#2a2a2a",font="Time 13 bold",anchor=E)
+labelRounds.pack(side=LEFT)
+lst = []
 
-def format_response(covid_test):
-    try:
-        info= 'Blank: '
-    except:
-        info= 'There was a problem retrieving that information...'
+m = int(input("Enter number of rounds : "))
 
-    return info
+# memory storage of the previous inputs
+for i in range(0, m):
+    round = int(input())
+    lst.append(round)
+#print the lists - still in progress
+root = Tk()
+t = Text(root)
+for x in lst:
+    t.insert(END, x + '\n')
+t.pack()
+root.mainloop()
+
+entryRounds = Entry(roundsFrame)
+entryRounds.pack(side=LEFT)
 
 roundsFrame.pack()
 

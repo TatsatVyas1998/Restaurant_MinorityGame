@@ -23,7 +23,13 @@ n = int(input("Enter number of agents : "))
 for i in range(0, n):
     agents = int(input())
     lst.append(agents)
-
+#print the lists - still in progress
+root = Tk()
+t = Text(root)
+for x in lst:
+    t.insert(END, x + '\n')
+t.pack()
+root.mainloop()
 
 agentFrame.pack()
 
@@ -41,7 +47,13 @@ m = int(input("Enter number of rounds : "))
 for i in range(0, m):
     round = int(input())
     lst.append(round)
-
+#print the lists - still in progress
+root = Tk()
+t = Text(root)
+for x in lst:
+    t.insert(END, x + '\n')
+t.pack()
+root.mainloop()
 
 entryRounds = Entry(roundsFrame)
 entryRounds.pack(side=LEFT)
