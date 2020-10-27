@@ -17,22 +17,19 @@ labelAgents.pack(side=LEFT)
 entryAgents = Entry(agentFrame)
 entryAgents.pack(side=LEFT)
 
-n = int(input("Enter number of agents : "))
+agentFrame.pack()
 
 # memory storage of the previous inputs
-for i in range(0, n):
-    agents = int(input())
-    lst.append(agents)
+for i in range(0, 20):
+    agents = str(agentFrame)
+    lst1.append(agents)
 #print the lists - still in progress
 root = Tk()
 t = Text(root)
-for x in lst:
+for x in lst1:
     t.insert(END, x + '\n')
 t.pack()
 root.mainloop()
-
-agentFrame.pack()
-
 
 #roundsFrame
 roundsFrame = Frame(window, bg="#2a2a2a")
@@ -41,12 +38,17 @@ labelRounds = Label(roundsFrame,text= "Number of rounds",fg="white",bg="#2a2a2a"
 labelRounds.pack(side=LEFT)
 lst = []
 
-m = int(input("Enter number of rounds : "))
+
+
+entryRounds = Entry(roundsFrame)
+entryRounds.pack(side=LEFT)
+
+roundsFrame.pack()
 
 # memory storage of the previous inputs
-for i in range(0, m):
-    round = int(input())
-    lst.append(round)
+for i in range(0, 20):
+    rounds = str(roundsFrame)
+    lst.append(rounds)
 #print the lists - still in progress
 root = Tk()
 t = Text(root)
@@ -55,10 +57,7 @@ for x in lst:
 t.pack()
 root.mainloop()
 
-entryRounds = Entry(roundsFrame)
-entryRounds.pack(side=LEFT)
 
-roundsFrame.pack()
 
 
 var=IntVar()
