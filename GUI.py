@@ -17,6 +17,13 @@ labelAgents.pack(side=LEFT)
 entryAgents = Entry(agentFrame)
 entryAgents.pack(side=LEFT)
 
+n = int(input("Enter number of agents : "))
+
+# memory storage of the previous inputs
+for i in range(0, n):
+    agents = int(input())
+    lst.append(agents)
+
 
 agentFrame.pack()
 
@@ -26,6 +33,15 @@ roundsFrame = Frame(window, bg="#2a2a2a")
 
 labelRounds = Label(roundsFrame,text= "Number of rounds",fg="white",bg="#2a2a2a",font="Time 13 bold",anchor=E)
 labelRounds.pack(side=LEFT)
+lst = []
+
+m = int(input("Enter number of rounds : "))
+
+# memory storage of the previous inputs
+for i in range(0, m):
+    round = int(input())
+    lst.append(round)
+
 
 entryRounds = Entry(roundsFrame)
 entryRounds.pack(side=LEFT)
