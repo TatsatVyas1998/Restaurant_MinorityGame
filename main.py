@@ -47,7 +47,7 @@ class  MatplotlibWidget ( QMainWindow ):
             self . MplWidget . canvas . axes . set_xlabel( 'Round' ) 
             self . MplWidget . canvas . axes . set_ylabel( 'Agents') 
             self . MplWidget . canvas . draw ()
-            print("test1")
+            #print("test1")
             self . stopSim . clicked . connect(stop_graph)
         
         
@@ -58,7 +58,7 @@ class  MatplotlibWidget ( QMainWindow ):
         ani=animation.FuncAnimation(self.MplWidget,animate,interval=1000)
         
         #self . MplWidget . canvas . axes . legend (( 'cosinus'),loc = 'upper right' ) 
-        print("test")
+        #print("test")
         self . MplWidget . canvas . draw ()
         
 
