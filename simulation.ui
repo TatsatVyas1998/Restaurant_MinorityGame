@@ -22,7 +22,7 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(248, 255, 183);</string>
+   <string notr="true">background-color:rgb(12, 7, 6)</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
@@ -46,7 +46,7 @@
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;            Restaurant Occupancy Prediction&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;Restaurant Occupancy Prediction&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -118,6 +118,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>12</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;okay&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
@@ -185,8 +188,8 @@ font: 75 18pt &quot;Perpetua&quot;;
     </property>
     <property name="font">
      <font>
-      <family>NSimSun</family>
-      <pointsize>16</pointsize>
+      <family>MS Reference Sans Serif</family>
+      <pointsize>15</pointsize>
       <weight>9</weight>
       <italic>false</italic>
       <bold>false</bold>
@@ -194,7 +197,7 @@ font: 75 18pt &quot;Perpetua&quot;;
     </property>
     <property name="styleSheet">
      <string notr="true">background-color:rgb(255, 30, 14);
-font: 75 16pt &quot;NSimSun&quot;;</string>
+font: 75 15pt &quot;MS Reference Sans Serif&quot;;</string>
     </property>
     <property name="text">
      <string>Stop</string>
@@ -295,7 +298,7 @@ p, li { white-space: pre-wrap; }
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#38e719;&quot;&gt;Infection Rate(%)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#abdf1c;&quot;&gt;Infection Rate(%)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="rounds_3">
@@ -347,7 +350,7 @@ p, li { white-space: pre-wrap; }
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#abdf1c;&quot;&gt;Weather Condition (1-5)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#abdf1c;&quot;&gt;Weather Condition (1-5)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QTimeEdit" name="timeEdit">
@@ -387,7 +390,7 @@ p, li { white-space: pre-wrap; }
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#38e719;&quot;&gt;Time of Day&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#abdf1c;&quot;&gt;Time of Day&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
   </widget>
