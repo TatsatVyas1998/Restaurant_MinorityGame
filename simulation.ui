@@ -22,13 +22,13 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">background-color: rgb(248, 255, 183);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>190</x>
       <y>10</y>
       <width>1311</width>
       <height>121</height>
@@ -46,15 +46,15 @@
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>            Restaurant Occupancy Prediction</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;            Restaurant Occupancy Prediction&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>19</x>
-      <y>192</y>
-      <width>291</width>
+      <x>20</x>
+      <y>200</y>
+      <width>191</width>
       <height>51</height>
      </rect>
     </property>
@@ -73,7 +73,7 @@
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>Number of Agents</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#abdf1c;&quot;&gt;Number of Agents&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -81,7 +81,7 @@
      <rect>
       <x>20</x>
       <y>260</y>
-      <width>291</width>
+      <width>191</width>
       <height>41</height>
      </rect>
     </property>
@@ -101,7 +101,7 @@ p, li { white-space: pre-wrap; }
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>Number of Rounds</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#abdf1c;&quot;&gt;Number of Rounds&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="agents">
@@ -149,58 +149,52 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="runSim">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>540</y>
+      <x>110</x>
+      <y>530</y>
       <width>261</width>
       <height>91</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
-      <weight>50</weight>
+      <family>Perpetua</family>
+      <pointsize>18</pointsize>
+      <weight>9</weight>
       <italic>false</italic>
       <bold>false</bold>
-      <underline>false</underline>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">background-color: rgb(31, 170, 0);
+font: 75 18pt &quot;Perpetua&quot;;
+
+</string>
     </property>
     <property name="text">
      <string>Run Simulation</string>
     </property>
    </widget>
-   <widget class="MplWidget" name="MplWidget" native="true">
-    <property name="geometry">
-     <rect>
-      <x>550</x>
-      <y>130</y>
-      <width>1031</width>
-      <height>781</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="stopSim">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>640</y>
+      <x>420</x>
+      <y>530</y>
       <width>261</width>
       <height>91</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
-      <weight>50</weight>
+      <family>NSimSun</family>
+      <pointsize>16</pointsize>
+      <weight>9</weight>
       <italic>false</italic>
       <bold>false</bold>
-      <underline>false</underline>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">background-color:rgb(255, 30, 14);
+font: 75 16pt &quot;NSimSun&quot;;</string>
     </property>
     <property name="text">
      <string>Stop</string>
@@ -209,9 +203,9 @@ p, li { white-space: pre-wrap; }
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>19</x>
-      <y>302</y>
-      <width>311</width>
+      <x>20</x>
+      <y>310</y>
+      <width>191</width>
       <height>51</height>
      </rect>
     </property>
@@ -230,7 +224,7 @@ p, li { white-space: pre-wrap; }
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>Restaurant Capacity</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#abdf1c;&quot;&gt;Restaurant Capacity&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="rounds_2">
@@ -280,7 +274,7 @@ p, li { white-space: pre-wrap; }
      <rect>
       <x>20</x>
       <y>370</y>
-      <width>291</width>
+      <width>191</width>
       <height>41</height>
      </rect>
     </property>
@@ -301,7 +295,7 @@ p, li { white-space: pre-wrap; }
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>Infection Rate(%)</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#38e719;&quot;&gt;Infection Rate(%)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="rounds_3">
@@ -353,7 +347,47 @@ p, li { white-space: pre-wrap; }
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>Weather Condition (1-5)</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#abdf1c;&quot;&gt;Weather Condition (1-5)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QTimeEdit" name="timeEdit">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>150</y>
+      <width>191</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(244, 255, 251);</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>140</y>
+      <width>151</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#0d0d0d;&quot;&gt;Agents are the number of customers you want to use for the simulation&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#38e719;&quot;&gt;Time of Day&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
   </widget>
@@ -363,7 +397,7 @@ p, li { white-space: pre-wrap; }
      <x>0</x>
      <y>0</y>
      <width>1025</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -389,14 +423,6 @@ p, li { white-space: pre-wrap; }
    </property>
   </action>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>MplWidget</class>
-   <extends>QWidget</extends>
-   <header>mplwidget.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

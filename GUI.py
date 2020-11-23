@@ -18,7 +18,7 @@ entryAgents = Entry(agentFrame)
 entryAgents.pack(side=LEFT)
 
 agentFrame.pack()
-
+lst1=[] 
 # memory storage of the previous inputs
 for i in range(0, 20):
     agents = str(agentFrame)
