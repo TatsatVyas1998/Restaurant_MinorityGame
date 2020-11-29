@@ -65,6 +65,7 @@ def compute_agent_decision(agents, Global_mem ,thrs_hold):
 
         #print("expected turnout" ,int(expected_turnout*(1/len(opt_strgy))))
         #print("threshold", thrs_hold)
+        agent.cur_predict(expected_turnout)
         if( int(expected_turnout*(1/len(opt_strgy))) < thrs_hold):
             agent_decisions.append(1)
             num_going +=1
@@ -73,21 +74,56 @@ def compute_agent_decision(agents, Global_mem ,thrs_hold):
             num_notgoing +=1
     return agent_decisions , num_going ,num_notgoing
 
+
+
 def get_winner_loosers( agent_decision, num_going, num_notgoing):
     not_g = False
     g = False
-    win_loose_arr =[]
+    win_lose_arr =[]
     if( num_notgoing > num_going):
         g = True
     else:
         not_g = True
     if( not_g is True):
+        num_winner = num_notgoing
         for i in range(0,len(agent_decision)):
             if( agent_decision[i]==0):
-                win_loose_arr.append(1)
+                win_lose_arr.append(1)
             else:
-                win_loose_arr.append(0)
+                win_lose_arr.append(0)
 
     if(g==True):
-        win_loose_arr = agent_decision.copy()
-    return(win_loose_arr)
+        win_lose_arr = agent_decision.copy()
+    return win_lose_arr
+
+def get_one_agent_decision(strgy, mem):
+    going_val = 0
+    for i in range(0,len(strgy)):
+         going_val += strgy[i]*mem[i]
+    return going_val
+
+
+def get_new_top_strgy(agent, agent_decision, num_going, Global_mem):
+    best_strgy = agent.top_strgy
+    cur_prd = abs(num_going - agent.get_cur_predict())
+
+    for i in range(0, len(agent.strgy)):
+        if( agent.top_strgy == i):
+            continue
+        tmp_val = get_one_agent_decision(agent.strgy[i] , Global_mem)
+        if( abs(num_going - tmp_val) < cur_prd ):
+            cur_prd = abs(num_going - tmp_val)
+            best_strgy = i
+    if(best_strgy != agent.top_strgy):
+        agent.top_strgy = best_strgy
+
+
+def compute_new_best(agents,winner_loser, agents_decision, num_going, Global_mem):
+    i = 0
+    for agent in agents:
+        tmp_result = winner_loser[i]
+        if(tmp_result == 1):
+            agent.increase_top_score()
+        if(tmp_result == 0):
+            if(agent.top_strgy_score ==0):
+                get_new_top_strgy(agent, agents_decision[i], num_going, Global_mem)

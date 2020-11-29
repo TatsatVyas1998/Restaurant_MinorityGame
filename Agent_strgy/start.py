@@ -11,12 +11,16 @@ class agent:
         self.strgy = strgy
         self.top_strgy = random.randint(0,9) #giving random strategy the best strategy
         self.top_strgy_score = 0
-    def best_strgy(idx):
+    def best_strgy(self , idx):
         self.top_strgy = idx
-    def increase_top_score():
+    def increase_top_score(self):
         self.top_strgy_score +=1
-    def decrease_top_score():
+    def decrease_top_score(self):
         self.top_strgy_score = max(0,self.top_strgy_score-1)
+    def cur_predict(self, num):
+        self.predicted_going = num
+    def get_cur_predict(self):
+        return self.predicted_going
 
 
 class strgy:
@@ -39,8 +43,11 @@ if __name__ == "__main__":
         agent_decision , num_going , num_notgoing = mtd.compute_agent_decision(agents, Global_mem ,thrs_hold)
         #supply agent decisions to sub-team one and obtain the actual agent_decisions
         #you store the num_goint here( it is the variable that tell you how many agents have decided to go out this round)
-        winner_loser = mtd.get_winner_loosers( agent_decision, num_going, num_notgoing)
-        
+        winner_loser= mtd.get_winner_loosers( agent_decision, num_going, num_notgoing)
+
+        for agent in agents:
+            mtd.compute_new_best(agents,winner_loser, agent_decision, num_going, Global_mem)
+
 
     #print(agent_decision)
     #print(winner_loser)
