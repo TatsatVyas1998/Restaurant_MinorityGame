@@ -1,8 +1,8 @@
 import numpy as np
 import methods as mtd
 import random
-INPUT_PARAMS = {'weather_condition' : 5 , 'rate_of_spread': 2.5 , 'restaurant_capacity' : 50 ,'un_employment_rate': 0.99,  'num_agents' : 100 , 'num_rounds' : 100}
-NUM_STRGY = 50
+INPUT_PARAMS = {'weather_condition' : 5 , 'rate_of_spread': 3.5 , 'restaurant_capacity' : 25 ,'un_employment_rate': 0.99,  'num_agents' : 100 , 'num_rounds' : 100}
+NUM_STRGY = 10
 NUM_RESTAURANTS = 60 #Estimated number of rastaurants in the are
 AVG_RESTAURANT_CAP= 40 #average restaurant capacity in the area
 #population= 100
@@ -52,7 +52,9 @@ if __name__ == "__main__":
         #print("number of agnets decision is : ", agent_decision )
 
         mtd.compute_new_best(agents,winner_loser, agent_decision, num_going, Global_mem)
-
+        Global_mem.pop()
+        Global_mem.insert(0,num_going)
+        #print(Global_mem)
 
     #print(agent_decision)
     #print(winner_loser)
