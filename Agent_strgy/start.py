@@ -43,6 +43,7 @@ if __name__ == "__main__":
     Global_mem = mtd.compute_random_mem(INPUT_PARAMS['num_agents'])#redomly generated memory at the begining
     thrs_hold = mtd.compute_thrshold(INPUT_PARAMS)
     print('threshold is : ', thrs_hold)
+    result_arr = []
     for round in range(0,INPUT_PARAMS['num_rounds']):
         #print("round number :", round)
         agent_decision , num_going , num_notgoing = mtd.compute_agent_decision(agents, Global_mem ,thrs_hold)
@@ -51,12 +52,9 @@ if __name__ == "__main__":
         winner_loser= mtd.get_winner_loosers( agent_decision, num_going, num_notgoing)
         print("number going : ", num_going )
         #print("number of agnets decision is : ", agent_decision )
-
+        result_arr.append(num_going)
         mtd.compute_new_best(agents,winner_loser, agent_decision, num_going, Global_mem)
         Global_mem.pop()
         Global_mem.insert(0,num_going)
         #print(Global_mem)
-
-    #print(agent_decision)
-    #print(winner_loser)
-    #print(Global_mem)
+    #eric you can take the result_arr from here
