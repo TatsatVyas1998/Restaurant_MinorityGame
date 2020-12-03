@@ -13,16 +13,23 @@ def pram_scale(Input_param):
 
 def get_random_weight(Input_param):
 
-    w1 = Input_param['weather_condition']* (random.randint(50,100 )/20)
+    n = 0 if random.randint(0,9) <3 else 1
+    w1 =  n * Input_param['weather_condition']* (random.randint(20,100 )/20)
     #print('weather_condition',w1)
-    w2 = Input_param['restaurant_capacity']* (random.randint(50, 100)/100)
+    n = 0 if random.randint(0,9) <6 else 1
+    w2 =  n * Input_param['restaurant_capacity']* (random.randint(30, 100)/100)
     #print('restaurant_capacity',w2)
     #print('w3', int(2+ Input_param['rate_of_spread']*100))
-    w3 = Input_param['rate_of_spread']*(random.randint(60,100)/100)#int(1+ Input_param['rate_of_spread']*100))/100)
+    n = 0 if random.randint(0,9) >4 else 1
+    w3 = n* Input_param['rate_of_spread']*(random.randint(60,100)/100)#int(1+ Input_param['rate_of_spread']*100))/100)
     #print('rate_of_spread',w3)
-    w4 = Input_param['un_employment_rate']*(random.randint(1,100)/100)
+    n = 0 if random.randint(0,9) >6 else 1
+    w4 =  n *Input_param['un_employment_rate']*(random.randint(1,100)/100)
     #print('un_employment_rate',w4)
-    return ((w1+w2-w3-w4)/2)
+    final_num = ((w1+w2-w3-w4)/2)
+    if(final_num<0):
+        return 0
+    return final_num
 
 def compute_random_strgy(NUM_STRGY, Input_param):
 
@@ -30,9 +37,10 @@ def compute_random_strgy(NUM_STRGY, Input_param):
     for _ in range(0,NUM_STRGY):
         temp = []
         for _ in range(0, Mem):
-            temp.append( get_random_weight(Input_param) )
+            temp.append(get_random_weight(Input_param) )
         strgy_lst.append(temp)
     #print(strgy_lst)
+    #print("strategy", strgy_lst)
     return strgy_lst
 
 def compute_agent_strgy(NUM_STRGY , Input_param):
@@ -45,11 +53,11 @@ def compute_agent_strgy(NUM_STRGY , Input_param):
 
 
 def compute_random_mem(population):
-    return[random.randint(40,population) for _ in range(0,Mem) ]
+    return[random.randint(0,population) for _ in range(0,Mem) ]
 
 def compute_thrshold(NUM_RESTAURANTS, AVG_RESTAURANT_CAP, Input_param):
     #print(rst_capacity)
-    return  int(Input_param['num_agents']*.5) # (NUM_RESTAURANTS*AVG_RESTAURANT_CAP * ((Input_param['restaurant_capacity']*100)/100))
+    return  int(Input_param['num_agents']*.6) # (NUM_RESTAURANTS*AVG_RESTAURANT_CAP * ((Input_param['restaurant_capacity']*100)/100))
 
 def compute_agent_decision(agents, Global_mem ,thrs_hold):
     agent_decisions = []
@@ -65,8 +73,9 @@ def compute_agent_decision(agents, Global_mem ,thrs_hold):
 
         #print("expected turnout" ,int(expected_turnout*(1/len(opt_strgy))))
         #print("threshold", thrs_hold)
-        agent.cur_predict(expected_turnout)
-        if( int(expected_turnout*(1/len(opt_strgy))) < thrs_hold):
+        agent.cur_predict(int(expected_turnout))
+        #print("expected turnout" , int(expected_turnout))
+        if( expected_turnout < thrs_hold):
             agent_decisions.append(1)
             num_going +=1
         else:
@@ -104,18 +113,20 @@ def get_one_agent_decision(strgy, mem):
 
 
 def get_new_top_strgy(agent, agent_decision, num_going, Global_mem):
+    agent.compute_new_set()
     best_strgy = agent.top_strgy
     cur_prd = abs(num_going - agent.get_cur_predict())
 
     for i in range(0, len(agent.strgy)):
-        if( agent.top_strgy == i):
-            continue
+        #if( agent.top_strgy == i):
+        #    continue
         tmp_val = get_one_agent_decision(agent.strgy[i] , Global_mem)
         if( abs(num_going - tmp_val) < cur_prd ):
             cur_prd = abs(num_going - tmp_val)
             best_strgy = i
-    if(best_strgy != agent.top_strgy):
-        agent.top_strgy = best_strgy
+    #if(best_strgy != agent.top_strgy):
+    agent.give_best_strgy(best_strgy)
+        #print("next best changed to strgy:" , best_strgy)
 
 
 def compute_new_best(agents,winner_loser, agents_decision, num_going, Global_mem):
@@ -127,3 +138,7 @@ def compute_new_best(agents,winner_loser, agents_decision, num_going, Global_mem
         if(tmp_result == 0):
             if(agent.top_strgy_score ==0):
                 get_new_top_strgy(agent, agents_decision[i], num_going, Global_mem)
+            else:
+                agent.decrease_top_score()
+        i+=1
+        #print("i is :" ,i)
