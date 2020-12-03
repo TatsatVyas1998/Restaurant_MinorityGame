@@ -13,18 +13,18 @@ def pram_scale(Input_param):
 
 def get_random_weight(Input_param):
 
-    n = 0 if random.randint(0,9) <3 else 1
-    w1 =  n * Input_param['weather_condition']* (random.randint(20,100 )/20)
+    n = 1#0 if random.randint(0,9) <3 else 1
+    w1 = random.randint(-1,1)*  (0.99- Input_param['weather_condition']* (random.randint(20,100 )/100))
     #print('weather_condition',w1)
-    n = 0 if random.randint(0,9) <6 else 1
-    w2 =  n * Input_param['restaurant_capacity']* (random.randint(30, 100)/100)
+    n = 1#0 if random.randint(0,9) <6 else 1
+    w2 =  random.randint(-1,1)* Input_param['restaurant_capacity']* (random.randint(30, 100)/100)
     #print('restaurant_capacity',w2)
     #print('w3', int(2+ Input_param['rate_of_spread']*100))
-    n = 0 if random.randint(0,9) >4 else 1
-    w3 = n* Input_param['rate_of_spread']*(random.randint(60,100)/100)#int(1+ Input_param['rate_of_spread']*100))/100)
+    n = 1#0 if random.randint(0,9) >4 else 1
+    w3 = random.randint(-1,1) * Input_param['rate_of_spread']*(random.randint(60,100)/100)#int(1+ Input_param['rate_of_spread']*100))/100)
     #print('rate_of_spread',w3)
-    n = 0 if random.randint(0,9) >6 else 1
-    w4 =  n *Input_param['un_employment_rate']*(random.randint(1,100)/100)
+    n = 1#0 if random.randint(0,9) >6 else 1
+    w4 = random.randint(-1,1)* Input_param['un_employment_rate']*(random.randint(1,100)/100)
     #print('un_employment_rate',w4)
     final_num = ((w1+w2-w3-w4)/2)
     if(final_num<0):
@@ -39,7 +39,7 @@ def compute_random_strgy(NUM_STRGY, Input_param):
         for _ in range(0, Mem):
             temp.append(get_random_weight(Input_param) )
         strgy_lst.append(temp)
-    #print(strgy_lst)
+    #print("agent strategy list is: " ,strgy_lst)
     #print("strategy", strgy_lst)
     return strgy_lst
 
@@ -55,9 +55,15 @@ def compute_agent_strgy(NUM_STRGY , Input_param):
 def compute_random_mem(population):
     return[random.randint(0,population) for _ in range(0,Mem) ]
 
-def compute_thrshold(NUM_RESTAURANTS, AVG_RESTAURANT_CAP, Input_param):
+
+
+def compute_thrshold_num(Input_param):
+    print('threshold', (0.99- Input_param['weather_condition'])+Input_param['restaurant_capacity']-Input_param['rate_of_spread']-Input_param['un_employment_rate'])
+    return (0.99-Input_param['weather_condition'])+Input_param['restaurant_capacity']-Input_param['rate_of_spread']-Input_param['un_employment_rate']
+
+def compute_thrshold( Input_param):
     #print(rst_capacity)
-    return  int(Input_param['num_agents']*.6) # (NUM_RESTAURANTS*AVG_RESTAURANT_CAP * ((Input_param['restaurant_capacity']*100)/100))
+    return  int(Input_param['num_agents']* compute_thrshold_num(Input_param))
 
 def compute_agent_decision(agents, Global_mem ,thrs_hold):
     agent_decisions = []

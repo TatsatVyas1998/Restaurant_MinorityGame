@@ -1,8 +1,8 @@
 import numpy as np
 import methods as mtd
 import random
-INPUT_PARAMS = {'weather_condition' : 5 , 'rate_of_spread': 3.5 , 'restaurant_capacity' : 25 ,'un_employment_rate': 0.99,  'num_agents' : 100 , 'num_rounds' : 100}
-NUM_STRGY = 10
+INPUT_PARAMS = {'weather_condition' : 1 , 'rate_of_spread': 1.5 , 'restaurant_capacity' : 70 ,'un_employment_rate': 0.99,  'num_agents' : 200 , 'num_rounds' : 100}
+NUM_STRGY = 100
 NUM_RESTAURANTS = 60 #Estimated number of rastaurants in the are
 AVG_RESTAURANT_CAP= 40 #average restaurant capacity in the area
 #population= 100
@@ -22,6 +22,7 @@ class agent:
     def get_cur_predict(self):
         return self.predicted_going
     def compute_new_set(self):
+        mtd.pram_scale(INPUT_PARAMS)
         self.strgy = mtd.compute_random_strgy(NUM_STRGY, INPUT_PARAMS)
 
 
@@ -40,7 +41,7 @@ if __name__ == "__main__":
 #this is where the execution starts
     agents = mtd.compute_agent_strgy( NUM_STRGY , INPUT_PARAMS )
     Global_mem = mtd.compute_random_mem(INPUT_PARAMS['num_agents'])#redomly generated memory at the begining
-    thrs_hold = mtd.compute_thrshold(NUM_RESTAURANTS, AVG_RESTAURANT_CAP, INPUT_PARAMS)
+    thrs_hold = mtd.compute_thrshold(INPUT_PARAMS)
     print('threshold is : ', thrs_hold)
     for round in range(0,INPUT_PARAMS['num_rounds']):
         #print("round number :", round)
