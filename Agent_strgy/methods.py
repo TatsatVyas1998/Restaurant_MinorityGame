@@ -3,7 +3,7 @@ import start as st
 import random
 
 #this basically decides how each agen t will make decision
-Mem = 5
+Mem = 6
 def pram_scale(Input_param):
 
     Input_param['weather_condition'] = ((Input_param['weather_condition']*2)/10)
@@ -58,8 +58,8 @@ def compute_random_mem(population):
 
 
 def compute_thrshold_num(Input_param):
-    print('threshold', (0.99- Input_param['weather_condition'])+Input_param['restaurant_capacity']-Input_param['rate_of_spread']-Input_param['un_employment_rate'])
-    return (0.99-Input_param['weather_condition'])+Input_param['restaurant_capacity']-Input_param['rate_of_spread']-Input_param['un_employment_rate']
+    print('threshold', (1.19- Input_param['weather_condition'])+Input_param['restaurant_capacity']-Input_param['rate_of_spread']-Input_param['un_employment_rate'])
+    return ((1.19-Input_param['weather_condition'])+Input_param['restaurant_capacity']-Input_param['rate_of_spread']-Input_param['un_employment_rate'])/2
 
 def compute_thrshold( Input_param):
     #print(rst_capacity)

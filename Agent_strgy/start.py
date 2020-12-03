@@ -1,7 +1,7 @@
 import numpy as np
 import methods as mtd
 import random
-INPUT_PARAMS = {'weather_condition' : 1 , 'rate_of_spread': 1.5 , 'restaurant_capacity' : 70 ,'un_employment_rate': 0.99,  'num_agents' : 200 , 'num_rounds' : 100}
+INPUT_PARAMS = {'weather_condition' : 5 , 'rate_of_spread': 0 , 'restaurant_capacity' : 100 ,'un_employment_rate': 0,  'num_agents' : 100 , 'num_rounds' : 1000}
 NUM_STRGY = 100
 NUM_RESTAURANTS = 60 #Estimated number of rastaurants in the are
 AVG_RESTAURANT_CAP= 40 #average restaurant capacity in the area
