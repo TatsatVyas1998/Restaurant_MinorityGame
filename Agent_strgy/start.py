@@ -1,6 +1,6 @@
 import numpy as np
 import methods as mtd
-import database from database
+from database import database
 import random
 INPUT_PARAMS = {'weather_condition' : 5 , 'rate_of_spread': 0 , 'restaurant_capacity' : 100 ,'un_employment_rate': 0,  'num_agents' : 100 , 'num_rounds' : 1000}
 NUM_STRGY = 100
@@ -59,4 +59,4 @@ if __name__ == "__main__":
         Global_mem.insert(0,num_going)
         #print(Global_mem)
     #eric you can take the result_arr from here
-    database.add_save(num_going, result_arr, INPUT_PARAMS)
+    database.add_save(num_going, result_arr, INPUT_PARAMS)#saves to database
