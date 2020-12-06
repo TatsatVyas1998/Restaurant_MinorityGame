@@ -2,10 +2,10 @@ import numpy as np
 import methods as mtd
 from database import database
 import random
-INPUT_PARAMS = {'weather_condition' : 5 , 'rate_of_spread': 0 , 'restaurant_capacity' : 100 ,'un_employment_rate': 0,  'num_agents' : 100 , 'num_rounds' : 1000}
-NUM_STRGY = 100
-NUM_RESTAURANTS = 60 #Estimated number of rastaurants in the are
-AVG_RESTAURANT_CAP= 40 #average restaurant capacity in the area
+#INPUT_PARAMS = None#{'weather_condition' : 5 , 'rate_of_spread': 0 , 'restaurant_capacity' : 100 ,'un_employment_rate': 0,  'num_agents' : 100 , 'num_rounds' : 10}
+#NUM_STRGY = None#100
+#NUM_RESTAURANTS = 60 #Estimated number of rastaurants in the are
+#AVG_RESTAURANT_CAP= 40 #average restaurant capacity in the area
 #population= 100
 class agent:
     def __init__(self, strgy):
@@ -22,24 +22,19 @@ class agent:
         self.predicted_going = num
     def get_cur_predict(self):
         return self.predicted_going
-    def compute_new_set(self):
-        mtd.pram_scale(INPUT_PARAMS)
+    def compute_new_set(self, INPUT_PARAMS, NUM_STRGY):
+        #mtd.pram_scale(INPUT_PARAMS)
         self.strgy = mtd.compute_random_strgy(NUM_STRGY, INPUT_PARAMS)
 
 
-class strgy:
-    """docstring for ."""
-    def __init__(self, weights):
-        self.w = arg
-        self.best_score = 0
 
 
 
 
 
-
-if __name__ == "__main__":
+#if __name__ == "__main__":
 #this is where the execution starts
+def start_simulation(INPUT_PARAMS, NUM_STRGY):
     agents = mtd.compute_agent_strgy( NUM_STRGY , INPUT_PARAMS )
     Global_mem = mtd.compute_random_mem(INPUT_PARAMS['num_agents'])#redomly generated memory at the begining
     thrs_hold = mtd.compute_thrshold(INPUT_PARAMS)
@@ -54,9 +49,26 @@ if __name__ == "__main__":
         print("number going : ", num_going )
         #print("number of agnets decision is : ", agent_decision )
         result_arr.append(num_going)
-        mtd.compute_new_best(agents,winner_loser, agent_decision, num_going, Global_mem)
+        mtd.compute_new_best(agents,winner_loser, agent_decision, num_going, Global_mem, INPUT_PARAMS, NUM_STRGY)
         Global_mem.pop()
         Global_mem.insert(0,num_going)
         #print(Global_mem)
     #eric you can take the result_arr from here
     database.add_save(num_going, result_arr, INPUT_PARAMS)#saves to database
+
+
+
+"""
+if __name__ == "__main__":
+    INPUT_PARAMS = {'weather_condition' : 5 , 'rate_of_spread': 0 , 'restaurant_capacity' : 100 ,'un_employment_rate': 0,  'num_agents' : 100 , 'num_rounds' : 10}
+    NUM_STRGY = 100
+    start_simulation(INPUT_PARAMS, NUM_STRGY)
+"""
+def get_round_turnout(save_number):
+    return database.load_save(save_number).turnout_per_round
+def get_round_going(save_number):
+    return database.load_save(save_number).final_turnout
+def get_parameter_values(save_number):
+    return database.load_save(save_number).parameter_values
+def clear_database():
+    database.erase_entire_file()

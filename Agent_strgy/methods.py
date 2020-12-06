@@ -118,8 +118,8 @@ def get_one_agent_decision(strgy, mem):
     return going_val
 
 
-def get_new_top_strgy(agent, agent_decision, num_going, Global_mem):
-    agent.compute_new_set()
+def get_new_top_strgy(agent, agent_decision, num_going, Global_mem, INPUT_PARAMS, NUM_STRGY):
+    agent.compute_new_set(INPUT_PARAMS, NUM_STRGY)
     best_strgy = agent.top_strgy
     cur_prd = abs(num_going - agent.get_cur_predict())
 
@@ -135,7 +135,7 @@ def get_new_top_strgy(agent, agent_decision, num_going, Global_mem):
         #print("next best changed to strgy:" , best_strgy)
 
 
-def compute_new_best(agents,winner_loser, agents_decision, num_going, Global_mem):
+def compute_new_best(agents,winner_loser, agents_decision, num_going, Global_mem, INPUT_PARAMS, NUM_STRGY):
     i = 0
     for agent in agents:
         tmp_result = winner_loser[i]
@@ -143,7 +143,7 @@ def compute_new_best(agents,winner_loser, agents_decision, num_going, Global_mem
             agent.increase_top_score()
         if(tmp_result == 0):
             if(agent.top_strgy_score ==0):
-                get_new_top_strgy(agent, agents_decision[i], num_going, Global_mem)
+                get_new_top_strgy(agent, agents_decision[i], num_going, Global_mem , INPUT_PARAMS, NUM_STRGY)
             else:
                 agent.decrease_top_score()
         i+=1
